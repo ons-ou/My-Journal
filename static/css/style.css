@@ -1,0 +1,49 @@
+        .bg-vid {
+            object-fit: cover;
+            width: 100vw;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        div {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            text-align: center;
+            background: rgba(0, 0, 0, 0.5);
+            color: #f1f1f1;
+            width: 100%;
+            padding: 20px;
+            font-family: "Bodoni MT Black", "Lucida Console", serif;
+            letter-spacing: 2px;
+        }
+
+        .btn-acc{
+            padding: 10px;
+            color: black;
+            background-color: antiquewhite;
+            width: 20%;
+            margin-left: 10px;
+            margin-right: 10px;
+            border-radius: 30%;
+            font-family: "Lucida Console", serif;
+            font-size: medium;
+            box-shadow: 0 4px #999;
+        }
+
+        .btn-acc:hover{
+            background-color: bisque;
+        }
+
+        .btn-acc:active {
+            background-color: bisque;
+            box-shadow: 0 1px #999;
+            transform: translateY(4px);
+        }
