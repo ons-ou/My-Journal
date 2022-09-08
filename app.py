@@ -5,10 +5,7 @@ app = Flask(__name__)
 
 @app.route("/", methods=["GET", "POST"])
 def index():
-    if request.args.get("div"):
-        return request.args.get("div")
-    else:
-        return render_template("index.html")
+    return render_template("index.html")
 
 
 if __name__ == '__main__':
