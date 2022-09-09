@@ -19,6 +19,7 @@ jQuery.fn.extend({
     },
 });
 
+//show all the elements in a div one by one
 showAllElements = function (element, $html) {
     $next=element.next();
 
@@ -38,6 +39,7 @@ showAllElements = function (element, $html) {
     }});
 }
 
+//on click close toast message
 $(document).ready(function () {
     $(".close-btn").click(function () {
         $(this).parent().hide()
