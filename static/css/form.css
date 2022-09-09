@@ -1,3 +1,13 @@
+#next{
+    float: right;
+    margin-right: 10%;
+}
+
+#back{
+    float: left;
+    margin-left: 10%;
+}
+
 [name=mood] {
   position: absolute;
   opacity: 0;
@@ -19,37 +29,36 @@ svg{
     padding: 10px 10px;
 }
 
-[type=text] {
+[type=text]{
     border-radius: 12px;
     height: 30px;
     width: 80%;
     font-size: 17px;
     outline: none;
+    margin-right: 0;
+    margin-bottom: 10px;
 }
 
 
-[type=text]:focus{
+[type=text]:focus, .add-new:hover{
     background-color: aliceblue;
     border: 2px solid black;
 }
 
-span{
-    display: inline-block;
-    background-color: white;
-    font-size: 17px;
-    width: 80%;
-    margin-left: 62px;
-    margin-right: 60px;
-    height: 30px;
-    outline: none;
-    margin-bottom: 30px;
-
+.add-new{
     border-radius: 12px;
+    height: 35px;
+    width: 81%;
+    font-size: 17px;
+    outline: none;
+    margin-right: 0;
+    margin-bottom: 10px;
 }
 
-span svg{
+.add-new *{
     width: 17px;
     height: 17px;
-    padding-top: 7.5px;
-    margin-top: 0;
+    vertical-align: middle;
+    padding-right: 10%;
+    padding-top: 5px;
 }

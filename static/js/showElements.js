@@ -19,9 +19,8 @@ jQuery.fn.extend({
     },
 });
 
-showAllElements = function (element){
+showAllElements = function (element, $html) {
     $next=element.next();
-    console.log($next)
 
     if (element.is("h1") || element.is("h2") || element.is("p"))
         element.showText().promise().then(() => {
@@ -29,4 +28,18 @@ showAllElements = function (element){
         });
     else
         element.fadeIn("slow", ()=> showAllElements($next))
+
+    $(document).on('keypress',function(e) {
+            if(e.which === 115) {
+                if ($html)
+                    $html= $html.replaceAll("display: none;","")
+                element.parent().html($html)
+
+    }});
 }
+
+$(document).ready(function () {
+    $(".close-btn").click(function () {
+        $(this).parent().hide()
+    })
+})

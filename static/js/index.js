@@ -2,8 +2,7 @@ $(document).ready(function () {
     $cont = $(".container").children()
     $cont.hide()
     $first=$cont.first()
-    $btn = $(".btn-acc")
-    showAllElements($first)
+    showAllElements($first, $first.parent().html())
 
 
     //toDo: implement login

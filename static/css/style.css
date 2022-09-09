@@ -21,12 +21,39 @@
     color: #f1f1f1;
     width: 100%;
     padding: 20px;
-    font-family: "Bodoni MT Black", "Lucida Console", serif;
-    letter-spacing: 2px;
+    font-family: "Kristen ITC", serif;
+    letter-spacing: 4px;
+}
+
+.skip {
+    position: absolute;
+    top: 2%;
+    left: 2%;
+    color: white;
+    font-family: "Kristen ITC", serif;
+    font-size: small;
+}
+
+.warning {
+    position: absolute;
+    bottom: 2%;
+    right: 2%;
+    color: black;
+    background-color: white;
+    font-family: "Kristen ITC", serif;
+    font-size: medium;
+    border-radius: 10px;
+    padding: 10px 10px;
+}
+
+.close-btn{
+    margin-left: 10px;
+    background: none;
+    border: none;
 }
 
 p{
-    font-size: 145%;
+    font-size: 125%;
 }
 
 .btn-acc {

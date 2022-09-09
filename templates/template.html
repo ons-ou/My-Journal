@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    {% block scripts %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="../static/js/showElements.js"></script>
+    {% endblock %}
+    {% block style %}
+    <link rel="stylesheet" href="../static/css/style.css">
+    {% endblock %}
+
+</head>
+<body>
+<video loop muted autoplay src="../static/assets/bg.mp4" class="bg-vid">
+</video>
+<span class="skip">Press "S" to skip animation</span>
+{%block body%}
+
+{%endblock%}
+
+<span class="warning" style="display: none;">
+    Field is Empty <button type="button" class="close-btn">&#10006;</button>
+</span>
+</body>
+</html>
