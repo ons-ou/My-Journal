@@ -1,4 +1,4 @@
-#next{
+#next, #submit{
     float: right;
     margin-right: 10%;
 }
@@ -39,8 +39,18 @@ svg{
     margin-bottom: 10px;
 }
 
+textarea{
+    display: flex;
+    border-radius: 12px;
+    height: 30%;
+    width: 80%;
+    font-size: 17px;
+    outline: none;
+    margin: 10px 10%;
+    vertical-align: center;
+}
 
-[type=text]:focus, .add-new:hover{
+[type=text]:focus, textarea:focus, .add-new:hover{
     background-color: aliceblue;
     border: 2px solid black;
 }

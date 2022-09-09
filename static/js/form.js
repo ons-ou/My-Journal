@@ -10,7 +10,7 @@ function animate($) {
     }
 }
 
-$(document).ready(function () {
+$(document).ready(function (event) {
     $("#date").append(new Date().toUTCString().slice(0, 16))
     let $nextbtn = $("#next")
     let $backbtn = $("#back"), newLi
@@ -22,7 +22,7 @@ $(document).ready(function () {
         $curr = $(".active")
 
         $fields = $curr.find("input[type=text]")
-        $fields.each(function (event) {
+        $fields.each(function () {
             if ($(this).val().length === 0) {
                 $war = $(".warning")
                 $war.show()
@@ -34,6 +34,13 @@ $(document).ready(function () {
 
         $curr.fadeOut(200)
         $next = $curr.next()
+
+        if ($next.next().attr("id")==="submit"){
+            $(this).hide()
+            $("#submit").show()
+            event.stopPropagation()
+            event.preventDefault()
+        }
 
         if ($next.is("form")) {
             $next.show()
@@ -76,7 +83,7 @@ $(document).ready(function () {
         }
     })
 
-    $(".form-group").on("click", ".add-new",function () {
+    $(".form-question").on("click", ".add-new",function () {
         console.log("click")
         newLi = document.createElement("li")
         $parent = $(this).parent().parent()
