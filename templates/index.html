@@ -8,10 +8,16 @@
 
 <div class="container">
     <h1>Welcome to ...., your own personal journaling log</h1>
-    <p>Do you have an account?</p>
-    <div>
-    <button class="btn-acc" id="user">User</button>
-    <a href="/entries"><button class="btn-acc" id="guest">Guest</button></a>
-    </div>
+    {% if session %}
+        <div>
+            <a href="/logout"> <button class="btn-acc">Logout</button> </a>
+            <a href="/entries/new"><button class="btn-acc">Start</button></a>
+        </div>
+    {% else %}
+        <p>Do you have an account?</p>
+        <div>
+            <a href="/login"> <button class="btn-acc" id="user">Join</button> </a>
+        </div>
+    {% endif %}
 </div>
 {% endblock %}

@@ -4,11 +4,23 @@ function animate($) {
         $.show()
         $el = $.children()
         $el.hide()
-        showAllElements($el.first(), $.html())
+        html = $.html()
+        showAllElements($el.first(), html)
         $.addClass("animOver")
     } else {
         $.fadeIn()
     }
+}
+
+function getInput(n){
+    $f = $("input[name="+n+"], textarea[name="+n+"]")
+    res=""
+    $f.each(function (){
+        if (res!=="")
+            res+=" \n "
+        res+= $(this).val()
+    })
+    return res
 }
 
 $(document).ready(function (event) {
@@ -16,6 +28,7 @@ $(document).ready(function (event) {
 
     let $nextbtn = $("#next")
     let $backbtn = $("#back"), newLi
+
     $backbtn.hide()
     $("div").not(".container").hide()
     animate($(".active"))
@@ -25,7 +38,6 @@ $(document).ready(function (event) {
         $curr = $(".active")
 
         $fields = $curr.find("input[type=text]")
-
         //if a text field is empty show warning toast message and don't move to next div
         $fields.each(function () {
             if ($(this).val().length === 0) {
@@ -51,10 +63,10 @@ $(document).ready(function (event) {
             $next = $next.children().first()
             $backbtn.show()
         }
+
         $curr.hide().removeClass("active")
         $next.addClass("active")
         animate($next)
-
 
     })
 
@@ -95,10 +107,41 @@ $(document).ready(function (event) {
 
     //add a new text input on button click
     $(".form-question").on("click", ".add-new",function () {
-        console.log("click")
         newLi = document.createElement("li")
         $parent = $(this).parent().parent()
         newLi.innerHTML = "<input type='text' name="+$parent.attr("name")+">"
         $parent.prepend(newLi)
+    })
+
+   //send post request on form submit
+    $("form").submit(function (e) {
+        e.preventDefault()
+        moo = $("[name=mood]:checked").attr("value")
+        tab = ["goals", "thanks", "tries", "thoughts"]
+
+        for (var i = 0; i < tab.length; i++)
+            tab[i] = getInput(tab[i])
+
+        $.ajax({
+            url: "/entries",
+            contentType: "application/json",
+            type: "Post",
+            dataType: "json",
+            async: true,
+            data: JSON.stringify({
+                mood: moo,
+                goals: tab[0],
+                thanks: tab[1],
+                tries: tab[2],
+                thoughts: tab[3]
+            }),
+            success: function (response) {
+                console.log(response)
+                window.location.href='/entries'
+            },
+            error: function (msg){
+                console.log(msg)
+            }
+        })
     })
 });

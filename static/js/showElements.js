@@ -1,7 +1,7 @@
 jQuery.fn.extend({
     // write letter by letter
     showText: function () {
-        var $deferred = new $.Deferred();
+        var deferred = new $.Deferred();
         this.show()
         $letters = this.text().split('')
         $el = this
@@ -9,13 +9,13 @@ jQuery.fn.extend({
         setInterval(() => {
             if ($letters.length === 0) {
                 clearInterval();
-                $deferred.resolve();
+                deferred.resolve();
             } else {
                 if ($el === this)
                     this.append($letters.shift())
             }
         }, 60);
-        return $deferred.promise();
+        return deferred.promise();
     },
 });
 
@@ -24,9 +24,9 @@ showAllElements = function (element, $html) {
     $next=element.next();
 
     if (element.is("h1") || element.is("h2") || element.is("p"))
-        element.showText().promise().then(() => {
+        element.showText().promise().done(() => {
             showAllElements($next)
-        });
+        })
     else
         element.fadeIn("slow", ()=> showAllElements($next))
 
@@ -37,7 +37,16 @@ showAllElements = function (element, $html) {
                 element.parent().html($html)
 
     }});
+
+    $("button").on("click", function() {
+        if ($html)
+            $html= $html.replaceAll("display: none;","")
+        element.parent().html($html)
+
+    })
 }
+
+
 
 //on click close toast message
 $(document).ready(function () {
