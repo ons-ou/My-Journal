@@ -12,10 +12,21 @@ MyJournal is a website that allows you to write and check your journal entries. 
 ## Tech Stack (Dependencies)
 
 ### 1. Backend Dependencies
-All the backend dependencies can be downloaded by running:
+#### PIP Dependencies
+
+Install dependencies by naviging to the `/backend` directory and running:
+
+```bash
+pip install -r requirements.txt
 ```
-pip install -r requirements
-```
+
+This will install all of the required packages we selected within the `requirements.txt` file.
+
+##### Key Dependencies
+
+- [Flask](http://flask.pocoo.org/) is a lightweight backend microservices framework. Flask is required to handle requests and responses.
+
+- [SQLAlchemy](https://www.sqlalchemy.org/) and [Flask-SQLAlchemy](https://flask-sqlalchemy.palletsprojects.com/en/2.x/) are libraries to handle the lightweight sqlite database. Since we want you to focus on auth, we handle the heavy lift for you in `./src/database/models.py`. We recommend skimming this code first so you know how to interface with the Drink model.
 
 ### 2. Frontend Dependencies
 The website's frontend needs **HTML**, **CSS**, and **Javascript**.
@@ -38,5 +49,11 @@ This website uses **JQuery**.
   ├── models *** database models
   └── templates
   ```
+  
+## Setup Auth0
+
+1. Create a new Auth0 Account
+2. Create a new, single page web application
+3. Create a .env file and add all Auth0 settings 
 
 
