@@ -3,8 +3,8 @@
     width: 100vw;
     height: 100vh;
     position: fixed;
-    top: -10px;
-    left: -10px;
+    top: 0;
+    left: 0;
     overflow: hidden;
     text-align: center;
     display: flex;
@@ -22,6 +22,7 @@
     width: 100%;
     padding: 20px;
     font-family: "Kristen ITC", serif;
+    font-size: 1.4em;
     letter-spacing: 4px;
 }
 
@@ -66,7 +67,7 @@ p{
     margin-right: 10px;
     border-radius: 30%;
     font-family: "Lucida Console", serif;
-    font-size: medium;
+    font-size: 1em;
     box-shadow: 0 4px #999;
 }
 
